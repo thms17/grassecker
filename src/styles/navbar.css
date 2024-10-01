@@ -1,0 +1,26 @@
+.nav_menu_link {
+  position: relative; /* Erforderlich, um das ::after-Pseudo-Element relativ zu positionieren */
+}
+
+.nav_menu_link::after {
+  content: '';
+  position: absolute;
+  left: 1rem;
+  right: 0;
+  bottom: 0.5rem; /* Positioniere die Linie 0.5rem unterhalb des Elements */
+  height: 0; /* Standardhöhe: 0px */
+  background-color: var(--base-color-brand--grün_1); /* Farbe der Linie */
+  width: calc(100% - 2rem); /* Linie soll die gesamte Breite einnehmen */
+  transition: height 0.25s ease; /* Animiert die Höhe innerhalb von 0,25 Sekunden */
+}
+
+.nav_menu_link:hover::after,
+.nav_menu_link.w--current::after {
+  height: 2px; /* Bei Hover oder wenn die Klasse 'w--current' vorhanden ist, wächst die Linie auf 2px Höhe */
+}
+
+@media screen and (max-width: 1280px) {
+  .nav_container {
+    padding-left: 0rem;
+  }
+}
